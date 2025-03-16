@@ -2,22 +2,22 @@ package src;
 
 import java.util.Properties;
 
-
 /**
  * Classe singleton para armazenar configurações centrais da aplicação.
  */
 public class ConfiguracaoCentral {
     // Instância única da classe (Singleton)
-    private static final ConfiguracaoCentral instancia = new ConfiguracaoCentral();
+    private static ConfiguracaoCentral instancia;
 
     // Objeto Properties para armazenar as configurações
-    private final Properties configuracoes = new Properties();
+    private Properties configuracoes;
 
     /**
      * Construtor privado para impedir a instanciação externa.
      * Define configurações padrão da aplicação.
      */
     private ConfiguracaoCentral() {
+        this.configuracoes = new Properties();
         configuracoes.setProperty("metodo_encriptacao", String.valueOf(Enums.EncryptMethod.AES));
         configuracoes.setProperty("armazenamento", String.valueOf(Enums.StorageType.LOCAL));
         configuracoes.setProperty("politica_senha", String.valueOf(Enums.Criteria.STRONG));
@@ -25,9 +25,12 @@ public class ConfiguracaoCentral {
 
     /**
      * Retorna a instância única da classe.
-     * @return Instância de src.ConfiguracaoCentral
+     * @return Instância de ConfiguracaoCentral
      */
     public static ConfiguracaoCentral getInstancia() {
+        if(instancia == null) {
+            instancia = new ConfiguracaoCentral();
+        }
         return instancia;
     }
 
