@@ -16,8 +16,5 @@ public class Main {
         // Mostra a estrutura
         System.out.println("Estrutura de categorias e passwords:");
         manager.getRoot().display(0);
-
-        // Testa a recuperação de uma password
-        System.out.println("Password de António: " + manager.getPasswordByUser("pessoal/António"));
     }
 }
