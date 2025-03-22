@@ -17,7 +17,7 @@ public class FileStorage implements IStorage {
         PasswordComponent root = new PasswordCategory("root");
         Map<String, PasswordComponent> categoryMap = new HashMap<>();
         categoryMap.put("root", root);
- 
+        
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
