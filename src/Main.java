@@ -2,6 +2,7 @@ package src;
 
 import src.Password.FileStorage;
 import src.Password.PasswordManager;
+import src.Password.PasswordMemento;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +15,24 @@ public class Main {
         manager.generateAndStore("Maria", "pessoal/Telefone", ConfiguracaoCentral.getInstancia());
 
         // Mostra a estrutura
-        System.out.println("Estrutura de categorias e passwords:");
+        System.out.println("Estrutura de categorias e passwords (encriptadas):");
         manager.getRoot().display(0);
+
+        // Salva o estado após gerar senhas
+        PasswordMemento memento = manager.saveState();
+        System.out.println("\nEstado salvo: Categoria=" + memento.getLastCategory() + ", Senha=" + memento.getLastPassword());
+
+        // Recupera uma senha para mudar o estado
+        String decryptedPassword = manager.getPasswordByUser("pessoal/Telefone/Maria");
+        System.out.println("\nApós recuperação:");
+        System.out.println("Senha recuperada: " + decryptedPassword); // Usa a variável aqui
+        System.out.println("Categoria atual: " + manager.getLastCategory());
+        System.out.println("Senha atual: " + manager.getLastPassword());
+
+        // Restaura o estado anterior
+        manager.restoreState(memento);
+        System.out.println("\nApós restauração:");
+        System.out.println("Categoria restaurada: " + manager.getLastCategory());
+        System.out.println("Senha restaurada: " + manager.getLastPassword());
     }
 }

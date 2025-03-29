@@ -5,48 +5,84 @@ import src.ConfiguracaoCentral;
 public class PasswordManager {
     private IStorage storage;
     private PasswordComponent root;
+    private EncryptionPool encryptionPool;
+    private String lastCategory;  // Última categoria acessada
+    private String lastPassword;  // Última senha consultada ou gerada
 
     public PasswordManager(IStorage storage) {
         this.storage = storage;
         this.root = ((FileStorage) storage).load();
+        this.encryptionPool = EncryptionPool.getInstance();
+        this.lastCategory = null;
+        this.lastPassword = null;
     }
 
     public void generateAndStore(String username, String categoryPath, ConfiguracaoCentral config) {
         IPasswordGenerator generator = PasswordGeneratorFactory.create(config.get("politica_senha"));
         String password = generator.generate();
 
-        // Encontra a categoria alvo
+        IEncryptor encryptor = encryptionPool.acquireEncryptor();
+        String encryptedPassword = encryptor.encrypt(password);
+
         PasswordComponent targetCategory = findOrCreateCategory(categoryPath);
 
-        // Verifica se o utilizador já existe na categoria
         if (targetCategory instanceof PasswordCategory) {
             for (PasswordComponent child : ((PasswordCategory) targetCategory).getChildren()) {
                 if (child.getName().equals(username)) {
-                    // Se o utilizador já existe, remove-o
                     targetCategory.remove(child);
                     break;
                 }
             }
         }
 
-        // Adiciona a nova password
-        PasswordComponent leaf = new PasswordLeaf(username, password);
+        PasswordComponent leaf = new PasswordLeaf(username, encryptedPassword);
         targetCategory.add(leaf);
 
-        // Salva a hierarquia
         storage.save(root);
+        encryptionPool.releaseEncryptor(encryptor);
+
+        // Atualiza o estado
+        this.lastCategory = categoryPath;
+        this.lastPassword = password; // Salva desencriptada
 
         System.out.println("Foi gerada a password do utilizador " + username + " na categoria " + categoryPath);
     }
 
     public String getPasswordByUser(String username) {
-        return storage.get(username);
+        String encryptedPassword = storage.get(username);
+        if (encryptedPassword != null) {
+            IEncryptor encryptor = encryptionPool.acquireEncryptor();
+            String decryptedPassword = encryptor.decrypt(encryptedPassword);
+            encryptionPool.releaseEncryptor(encryptor);
+
+            // Atualiza o estado
+            this.lastCategory = username.substring(0, username.lastIndexOf("/"));
+            this.lastPassword = decryptedPassword;
+
+            return decryptedPassword;
+        }
+        return null;
     }
 
-    public void removePasswordByUser(String username) {
-        storage.remove(username);
+    // Métodos do Memento
+    public PasswordMemento saveState() {
+        return new PasswordMemento(lastCategory, lastPassword);
     }
 
+    public void restoreState(PasswordMemento memento) {
+        this.lastCategory = memento.getLastCategory();
+        this.lastPassword = memento.getLastPassword();
+    }
+
+    public String getLastCategory() {
+        return lastCategory;
+    }
+
+    public String getLastPassword() {
+        return lastPassword;
+    }
+
+    // Métodos restantes sem alteração: removePasswordByUser, findOrCreateCategory, getRoot
     private PasswordComponent findOrCreateCategory(String categoryPath) {
         String[] categories = categoryPath.split("/");
         PasswordComponent current = root;

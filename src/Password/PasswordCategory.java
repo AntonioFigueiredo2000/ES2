@@ -34,17 +34,19 @@ public class PasswordCategory implements PasswordComponent {
 
     @Override
     public void display(int depth) {
-        StringBuilder indent = new StringBuilder();
-        for (int i = 0; i < depth; i++) {
-            indent.append("-");
+        // Não exibe o nome da raiz se for "root"
+        if (!name.equals("root")) {
+            StringBuilder indent = new StringBuilder();
+            for (int i = 0; i < depth; i++) {
+                indent.append("-");
+            }
+            System.out.println(indent + name);
         }
-        System.out.println(indent + name);
         for (PasswordComponent component : components) {
             component.display(depth + 2);
         }
     }
 
-    // Novo método para expor os filhos
     public List<PasswordComponent> getChildren() {
         return components;
     }
