@@ -3,6 +3,12 @@ package src;
 import src.Password.FileStorage;
 import src.Password.PasswordManager;
 import src.Password.PasswordMemento;
+import src.autenticacao.AlertaSeguranca;
+import src.autenticacao.Autenticacao;
+import src.autenticacao.AutenticacaoMultifator;
+import src.autenticacao.AutenticacaoSimples;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,5 +40,30 @@ public class Main {
         System.out.println("\nApós restauração:");
         System.out.println("Categoria restaurada: " + manager.getLastCategory());
         System.out.println("Senha restaurada: " + manager.getLastPassword());
+
+
+
+        System.out.println("\n------------------------Autenticacao multifator-----------------------------:");
+
+        Autenticacao autenticacaoSimples = new AutenticacaoSimples();
+        Autenticacao autenticacaoComMultifator = new AutenticacaoMultifator(autenticacaoSimples);
+        Autenticacao autenticacaoComAlerta = new AlertaSeguranca(autenticacaoComMultifator);
+
+        // Testa a autenticação
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o nome de utilizador: ");
+        String utilizador = scanner.nextLine();
+        System.out.print("Digite a password: ");
+        String password = scanner.nextLine();
+
+        boolean autenticado = autenticacaoComAlerta.autenticar(utilizador, password);
+
+        if (autenticado) {
+            System.out.println("Usuário autenticado com sucesso!");
+        } else {
+            System.out.println("Falha na autenticação.");
+        }
     }
 }
+
+
