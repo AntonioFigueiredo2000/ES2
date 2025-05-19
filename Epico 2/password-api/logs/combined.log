@@ -1,0 +1,224 @@
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-12T23:30:45.622Z"}
+{"level":"error","message":"Erro ao conectar ao MongoDB Atlas: bad auth : authentication failed","timestamp":"2025-05-12T23:30:46.442Z"}
+{"level":"info","message":"[2025-05-12T23:31:06.020Z] GET / - User: unauthenticated","timestamp":"2025-05-12T23:31:06.020Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-12T23:32:37.492Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-12T23:32:38.510Z"}
+{"level":"info","message":"[2025-05-12T23:32:43.310Z] GET / - User: unauthenticated","timestamp":"2025-05-12T23:32:43.310Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-12T23:34:15.949Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-12T23:34:16.768Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-12T23:34:24.779Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-12T23:34:25.629Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-12T23:34:47.214Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-12T23:34:48.054Z"}
+{"level":"info","message":"[2025-05-12T23:34:52.548Z] GET / - User: unauthenticated","timestamp":"2025-05-12T23:34:52.549Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-12T23:37:44.535Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-12T23:37:45.472Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-12T23:44:39.186Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-12T23:44:40.128Z"}
+{"level":"info","message":"[2025-05-12T23:44:45.212Z] GET / - User: unauthenticated","timestamp":"2025-05-12T23:44:45.212Z"}
+{"level":"info","message":"[2025-05-12T23:45:47.570Z] POST / - User: unauthenticated","timestamp":"2025-05-12T23:45:47.570Z"}
+{"level":"info","message":"[2025-05-12T23:46:09.443Z] POST / - User: unauthenticated","timestamp":"2025-05-12T23:46:09.443Z"}
+{"level":"info","message":"[2025-05-12T23:48:06.390Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-12T23:48:06.390Z"}
+{"level":"info","message":"Utilizador registrado: teste","timestamp":"2025-05-12T23:48:06.713Z"}
+{"level":"info","message":"[2025-05-12T23:48:57.658Z] GET / - User: unauthenticated","timestamp":"2025-05-12T23:48:57.658Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T13:51:45.915Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T13:51:46.885Z"}
+{"level":"info","message":"[2025-05-13T13:51:52.822Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-13T13:51:52.822Z"}
+{"level":"warn","message":"Tentativa de registo com username existente: teste","timestamp":"2025-05-13T13:51:52.903Z"}
+{"level":"error","message":"Erro ao registar utilizador: Utilizador já existe","timestamp":"2025-05-13T13:51:52.903Z"}
+{"level":"info","message":"[2025-05-13T13:53:17.495Z] POST /api/login - User: unauthenticated","timestamp":"2025-05-13T13:53:17.495Z"}
+{"level":"info","message":"Utilizador logado: teste","timestamp":"2025-05-13T13:53:17.723Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T13:54:13.900Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-13T13:55:45.402Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T13:55:46.280Z"}
+{"level":"info","message":"[2025-05-13T13:56:29.991Z] GET / - User: unauthenticated","timestamp":"2025-05-13T13:56:29.991Z"}
+{"level":"info","message":"[2025-05-13T13:56:30.232Z] GET /favicon.ico - User: unauthenticated","timestamp":"2025-05-13T13:56:30.232Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T13:57:10.264Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T13:57:15.098Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T13:57:15.926Z"}
+{"level":"info","message":"[2025-05-13T13:58:32.878Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T13:58:32.878Z"}
+{"level":"warn","message":"Tentativa de acesso sem token","timestamp":"2025-05-13T13:58:32.881Z"}
+{"level":"info","message":"[2025-05-13T13:59:45.441Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T13:59:45.441Z"}
+{"level":"warn","message":"Tentativa de acesso sem token","timestamp":"2025-05-13T13:59:45.443Z"}
+{"level":"info","message":"[2025-05-13T14:00:00.094Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-13T14:00:00.095Z"}
+{"level":"warn","message":"Tentativa de registo com username existente: teste","timestamp":"2025-05-13T14:00:00.188Z"}
+{"level":"error","message":"Erro ao registar utilizador: Utilizador já existe","timestamp":"2025-05-13T14:00:00.189Z"}
+{"level":"info","message":"[2025-05-13T14:03:16.683Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T14:03:16.683Z"}
+{"level":"warn","message":"Tentativa de acesso sem token","timestamp":"2025-05-13T14:03:16.684Z"}
+{"level":"info","message":"[2025-05-13T14:06:29.682Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-13T14:06:29.682Z"}
+{"level":"info","message":"Utilizador registado: Suh","timestamp":"2025-05-13T14:06:29.962Z"}
+{"level":"info","message":"[2025-05-13T14:06:50.199Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T14:06:50.199Z"}
+{"level":"warn","message":"Tentativa de acesso sem token","timestamp":"2025-05-13T14:06:50.199Z"}
+{"level":"info","message":"[2025-05-13T14:07:21.480Z] POST /api/app?Suh=password123 - User: unauthenticated","timestamp":"2025-05-13T14:07:21.480Z"}
+{"level":"warn","message":"Tentativa de acesso sem token","timestamp":"2025-05-13T14:07:21.481Z"}
+{"level":"info","message":"[2025-05-13T14:08:07.144Z] POST /api/app?Suh=password123 - User: unauthenticated","timestamp":"2025-05-13T14:08:07.144Z"}
+{"level":"warn","message":"Tentativa de acesso sem token","timestamp":"2025-05-13T14:08:07.145Z"}
+{"level":"info","message":"[2025-05-13T14:08:25.865Z] GET / - User: unauthenticated","timestamp":"2025-05-13T14:08:25.865Z"}
+{"level":"info","message":"[2025-05-13T14:09:07.633Z] POST /api/login - User: unauthenticated","timestamp":"2025-05-13T14:09:07.633Z"}
+{"level":"info","message":"Utilizador logado: Suh","timestamp":"2025-05-13T14:09:07.815Z"}
+{"level":"info","message":"[2025-05-13T14:12:29.316Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T14:12:29.316Z"}
+{"level":"info","message":"App criado: eee818ce-d03a-4acd-8205-974134f1669a por Utilizador 2b6135e3-ff4d-4e1b-8dec-2f654b635865","timestamp":"2025-05-13T14:12:29.404Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:06:03.245Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:06:04.149Z"}
+{"level":"info","message":"[2025-05-13T22:06:12.247Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-13T22:06:12.247Z"}
+{"level":"info","message":"Utilizador registado: Susana","timestamp":"2025-05-13T22:06:12.577Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:06:38.657Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:06:39.492Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:06:50.572Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:06:51.375Z"}
+{"level":"info","message":"[2025-05-13T22:15:24.686Z] POST /api/login - User: unauthenticated","timestamp":"2025-05-13T22:15:24.686Z"}
+{"level":"info","message":"Utilizador logado: Susana","timestamp":"2025-05-13T22:15:24.905Z"}
+{"level":"info","message":"[2025-05-13T22:21:34.467Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T22:21:34.467Z"}
+{"level":"warn","message":"Tentativa de criar app sem nome","timestamp":"2025-05-13T22:21:34.475Z"}
+{"level":"info","message":"[2025-05-13T22:21:55.664Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T22:21:55.664Z"}
+{"level":"info","message":"App criado: 1af01d39-31a1-4719-aca0-649e178eb788 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:21:55.756Z"}
+{"level":"info","message":"[2025-05-13T22:24:22.671Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:24:22.671Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:24:22.735Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:24:22.738Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:26:44.559Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:26:45.392Z"}
+{"level":"info","message":"[2025-05-13T22:26:50.023Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:26:50.023Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:26:50.121Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:26:50.123Z"}
+{"level":"info","message":"[2025-05-13T22:27:03.557Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:27:03.557Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:27:03.634Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:27:03.635Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:27:55.950Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:27:56.842Z"}
+{"level":"info","message":"[2025-05-13T22:28:04.695Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:28:04.695Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:28:04.786Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:28:04.788Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:28:22.866Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:28:23.683Z"}
+{"level":"info","message":"[2025-05-13T22:28:48.735Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:28:48.735Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:28:48.831Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:28:48.833Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:29:18.411Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:29:19.343Z"}
+{"level":"info","message":"[2025-05-13T22:29:24.711Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:29:24.711Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:29:24.817Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:29:24.818Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:30:53.692Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:30:54.621Z"}
+{"level":"info","message":"[2025-05-13T22:30:58.168Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:30:58.168Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:30:58.266Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:30:58.271Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:31:47.562Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:31:48.381Z"}
+{"level":"info","message":"[2025-05-13T22:31:49.588Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:31:49.588Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:31:49.671Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:31:49.673Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:33:24.475Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:33:25.261Z"}
+{"level":"info","message":"[2025-05-13T22:33:28.929Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:33:28.929Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:33:29.031Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:33:29.037Z"}
+{"level":"info","message":"[2025-05-13T22:35:01.604Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:35:01.605Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:35:01.677Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:35:01.680Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:36:21.988Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:36:22.895Z"}
+{"level":"info","message":"[2025-05-13T22:36:27.791Z] POST /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:36:27.791Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:36:27.879Z"}
+{"level":"info","message":"password criada para app 1af01d39-31a1-4719-aca0-649e178eb788 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:36:28.032Z"}
+{"level":"info","message":"[2025-05-13T22:43:17.997Z] GET /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:43:17.997Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:43:18.079Z"}
+{"level":"error","message":"Erro ao obter password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:43:18.081Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:43:56.859Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:43:57.687Z"}
+{"level":"info","message":"[2025-05-13T22:44:20.169Z] GET /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:44:20.169Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:44:20.263Z"}
+{"level":"error","message":"Erro ao obter password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:44:20.266Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:45:02.396Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:45:03.389Z"}
+{"level":"info","message":"[2025-05-13T22:45:07.147Z] GET /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:45:07.147Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:45:07.245Z"}
+{"level":"info","message":"password obtida para app 1af01d39-31a1-4719-aca0-649e178eb788 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:45:07.311Z"}
+{"level":"info","message":"[2025-05-13T22:46:01.621Z] GET /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:46:01.621Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:46:01.704Z"}
+{"level":"info","message":"password obtida para app 1af01d39-31a1-4719-aca0-649e178eb788 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:46:01.772Z"}
+{"level":"info","message":"[2025-05-13T22:48:14.301Z] PUT /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:48:14.301Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:48:14.372Z"}
+{"level":"error","message":"Erro ao atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:48:14.374Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:48:28.825Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:48:29.809Z"}
+{"level":"info","message":"[2025-05-13T22:48:38.704Z] PUT /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:48:38.704Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:48:38.797Z"}
+{"level":"info","message":"password atualizada para app 1af01d39-31a1-4719-aca0-649e178eb788 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:48:38.963Z"}
+{"level":"info","message":"[2025-05-13T22:49:03.490Z] GET /api/password/1af01d39-31a1-4719-aca0-649e178eb788 - User: unauthenticated","timestamp":"2025-05-13T22:49:03.490Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 1af01d39-31a1-4719-aca0-649e178eb788","timestamp":"2025-05-13T22:49:03.572Z"}
+{"level":"info","message":"password obtida para app 1af01d39-31a1-4719-aca0-649e178eb788 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:49:03.646Z"}
+{"level":"info","message":"[2025-05-13T22:51:02.843Z] GET /api/apps - User: unauthenticated","timestamp":"2025-05-13T22:51:02.843Z"}
+{"level":"info","message":"Listagem de apps para Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:51:02.920Z"}
+{"level":"info","message":"[2025-05-13T22:51:42.983Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-13T22:51:42.983Z"}
+{"level":"info","message":"App criado: 58588131-a8d9-45f3-8c38-119074c94db1 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:51:43.076Z"}
+{"level":"info","message":"[2025-05-13T22:51:49.943Z] GET /api/apps - User: unauthenticated","timestamp":"2025-05-13T22:51:49.943Z"}
+{"level":"info","message":"Listagem de apps para Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:51:50.017Z"}
+{"level":"info","message":"[2025-05-13T22:52:57.432Z] GET /api/password/58588131-a8d9-45f3-8c38-119074c94db1 - User: unauthenticated","timestamp":"2025-05-13T22:52:57.432Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 58588131-a8d9-45f3-8c38-119074c94db1","timestamp":"2025-05-13T22:52:57.511Z"}
+{"level":"warn","message":"password não encontrada para app 58588131-a8d9-45f3-8c38-119074c94db1","timestamp":"2025-05-13T22:52:57.582Z"}
+{"level":"info","message":"[2025-05-13T22:53:24.106Z] POST /api/password/58588131-a8d9-45f3-8c38-119074c94db1 - User: unauthenticated","timestamp":"2025-05-13T22:53:24.106Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 58588131-a8d9-45f3-8c38-119074c94db1","timestamp":"2025-05-13T22:53:24.188Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:53:24.192Z"}
+{"level":"info","message":"[2025-05-13T22:53:57.570Z] POST /api/password/58588131-a8d9-45f3-8c38-119074c94db1 - User: unauthenticated","timestamp":"2025-05-13T22:53:57.570Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 58588131-a8d9-45f3-8c38-119074c94db1","timestamp":"2025-05-13T22:53:57.641Z"}
+{"level":"error","message":"Erro ao criar/atualizar password: The 3rd, `field` parameter is expected to be a string. See https://stalniy.github.io/casl/en/api/casl-ability#can-of-pure-ability for details","timestamp":"2025-05-13T22:53:57.644Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:54:46.549Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:54:47.434Z"}
+{"level":"info","message":"[2025-05-13T22:55:02.091Z] POST /api/password/58588131-a8d9-45f3-8c38-119074c94db1 - User: unauthenticated","timestamp":"2025-05-13T22:55:02.091Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 58588131-a8d9-45f3-8c38-119074c94db1","timestamp":"2025-05-13T22:55:02.184Z"}
+{"level":"info","message":"password criada para app 58588131-a8d9-45f3-8c38-119074c94db1 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:55:02.330Z"}
+{"level":"info","message":"[2025-05-13T22:55:21.047Z] GET /api/password/58588131-a8d9-45f3-8c38-119074c94db1 - User: unauthenticated","timestamp":"2025-05-13T22:55:21.047Z"}
+{"level":"info","message":"Permissões de proprietário concedidas para utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a no app 58588131-a8d9-45f3-8c38-119074c94db1","timestamp":"2025-05-13T22:55:21.118Z"}
+{"level":"info","message":"password obtida para app 58588131-a8d9-45f3-8c38-119074c94db1 por Utilizador 76bac61e-386d-470d-a1f1-1c6064778c5a","timestamp":"2025-05-13T22:55:21.184Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-13T22:58:17.413Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-13T22:58:18.358Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-15T16:42:08.424Z"}
+{"level":"error","message":"Erro ao conectar ao MongoDB Atlas: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","timestamp":"2025-05-15T16:42:38.545Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-15T17:08:11.130Z"}
+{"level":"error","message":"Erro ao conectar ao MongoDB Atlas: querySrv ECONNREFUSED _mongodb._tcp.cluster0.lzoex3z.mongodb.net","timestamp":"2025-05-15T17:08:15.191Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-15T17:39:59.504Z"}
+{"level":"error","message":"Erro ao conectar ao MongoDB Atlas: querySrv ECONNREFUSED _mongodb._tcp.cluster0.lzoex3z.mongodb.net","timestamp":"2025-05-15T17:39:59.523Z"}
+{"level":"info","message":"[2025-05-15T17:41:46.188Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-15T17:41:46.188Z"}
+{"level":"error","message":"Erro ao registar utilizador: Operation `users.findOne()` buffering timed out after 10000ms","timestamp":"2025-05-15T17:41:56.212Z"}
+{"level":"info","message":"[2025-05-15T17:42:27.326Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-15T17:42:27.326Z"}
+{"level":"error","message":"Erro ao registar utilizador: Operation `users.findOne()` buffering timed out after 10000ms","timestamp":"2025-05-15T17:42:37.335Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-15T17:43:20.869Z"}
+{"level":"info","message":"[2025-05-15T17:43:27.299Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-15T17:43:27.299Z"}
+{"level":"error","message":"Erro ao registar utilizador: Operation `users.findOne()` buffering timed out after 10000ms","timestamp":"2025-05-15T17:43:37.325Z"}
+{"level":"info","message":"[2025-05-15T17:43:39.179Z] GET / - User: unauthenticated","timestamp":"2025-05-15T17:43:39.179Z"}
+{"level":"error","message":"Erro ao conectar ao MongoDB Atlas: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","timestamp":"2025-05-15T17:43:51.016Z"}
+{"level":"info","message":"[2025-05-15T17:44:36.643Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-15T17:44:36.644Z"}
+{"level":"error","message":"Erro ao registar utilizador: Operation `users.findOne()` buffering timed out after 10000ms","timestamp":"2025-05-15T17:44:46.658Z"}
+{"level":"info","message":"[2025-05-15T17:46:11.062Z] POST /api/login - User: unauthenticated","timestamp":"2025-05-15T17:46:11.062Z"}
+{"level":"error","message":"Erro ao fazer login: Operation `users.findOne()` buffering timed out after 10000ms","timestamp":"2025-05-15T17:46:21.067Z"}
+{"level":"info","message":"[2025-05-15T17:52:24.556Z] GET / - User: unauthenticated","timestamp":"2025-05-15T17:52:24.556Z"}
+{"level":"info","message":"[2025-05-15T17:52:26.454Z] GET / - User: unauthenticated","timestamp":"2025-05-15T17:52:26.454Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-15T17:54:36.528Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-15T17:54:37.474Z"}
+{"level":"info","message":"[2025-05-15T17:54:50.250Z] POST /api/register - User: unauthenticated","timestamp":"2025-05-15T17:54:50.250Z"}
+{"level":"info","message":"Utilizador registado: João","timestamp":"2025-05-15T17:54:50.592Z"}
+{"level":"info","message":"[2025-05-15T17:55:34.165Z] POST /api/login - User: unauthenticated","timestamp":"2025-05-15T17:55:34.165Z"}
+{"level":"info","message":"Utilizador logado: João","timestamp":"2025-05-15T17:55:34.418Z"}
+{"level":"info","message":"[2025-05-15T17:56:35.830Z] POST /api/app - User: unauthenticated","timestamp":"2025-05-15T17:56:35.830Z"}
+{"level":"info","message":"App criado: f5b55e6e-7427-472d-ba52-4eb066a78431 por utilizador 9c91b00d-0a6c-450e-953f-ac11ff7aa0cf","timestamp":"2025-05-15T17:56:35.920Z"}
+{"level":"info","message":"[2025-05-15T17:57:44.493Z] POST /api/password/f5b55e6e-7427-472d-ba52-4eb066a78431 - User: unauthenticated","timestamp":"2025-05-15T17:57:44.493Z"}
+{"level":"error","message":"Erro de autenticação: jwt expired","timestamp":"2025-05-15T17:57:44.499Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-19T13:37:25.881Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-19T13:37:26.820Z"}
+{"level":"info","message":"Servidor a executar na porta 3000","timestamp":"2025-05-19T13:38:24.913Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-19T13:38:25.790Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-19T13:41:10.512Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-19T13:41:11.355Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-19T13:45:24.780Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-19T13:45:25.611Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-19T13:45:40.778Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-19T13:45:41.631Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-19T13:46:15.983Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-19T13:46:16.758Z"}
+{"level":"info","message":"Servidor a correr na porta 3000","timestamp":"2025-05-19T14:09:44.635Z"}
+{"level":"info","message":"Conectado ao MongoDB Atlas","timestamp":"2025-05-19T14:09:45.561Z"}
+{"level":"info","message":"Utilizador registado: António","timestamp":"2025-05-19T14:15:55.656Z"}
+{"level":"info","message":"Utilizador logado: António","timestamp":"2025-05-19T14:16:27.873Z"}
+{"level":"info","message":"App criado: a97eb105-2467-4485-bf68-bb03649ae4ef por utilizador 9f783deb-fad5-468b-bc91-9194b31cd129","timestamp":"2025-05-19T14:17:57.266Z"}
+{"level":"error","message":"Erro de autenticação: jwt expired","timestamp":"2025-05-19T14:18:56.424Z"}
