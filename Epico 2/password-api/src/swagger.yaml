@@ -1,0 +1,230 @@
+openapi: 3.0.3
+info:
+  title: Password Management API
+  description: API para gerir passwords de aplicativos com autenticação JWT e ReBAC.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Servidor local
+paths:
+  /api/register:
+    post:
+      summary: Registrar um novo Utilizador
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required: [username, password]
+      responses:
+        '201':
+          description: Utilizador criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  username:
+                    type: string
+        '400':
+          description: Erro na requisição
+  /api/login:
+    post:
+      summary: Autenticar um Utilizador
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required: [username, password]
+      responses:
+        '200':
+          description: Login bem-sucedido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      username:
+                        type: string
+        '401':
+          description: Credenciais inválidas
+  /api/app:
+    post:
+      summary: Criar um novo aplicativo
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required: [name]
+      responses:
+        '201':
+          description: App criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appid:
+                    type: string
+                  name:
+                    type: string
+        '400':
+          description: Nome do app é obrigatório
+        '401':
+          description: Autenticação necessária
+  /api/apps:
+    get:
+      summary: Listar aplicativos do Utilizador
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de apps
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    appid:
+                      type: string
+                    name:
+                      type: string
+                    owner:
+                      type: string
+                    editors:
+                      type: array
+                      items:
+                        type: string
+        '401':
+          description: Autenticação necessária
+  /api/password/{appid}:
+    post:
+      summary: Criar ou atualizar uma password para um app
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: appid
+          required: true
+          schema:
+            type: string
+          description: ID único do aplicativo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+              required: [password]
+      responses:
+        '201':
+          description: password criada
+        '200':
+          description: password atualizada
+        '400':
+          description: Password é obrigatório
+        '401':
+          description: Autenticação necessária
+        '403':
+          description: Acesso negado
+        '404':
+          description: App não encontrado
+    put:
+      summary: Atualizar a password de um app
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: appid
+          required: true
+          schema:
+            type: string
+          description: ID único do aplicativo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+              required: [password]
+      responses:
+        '200':
+          description: password atualizada
+        '400':
+          description: Password é obrigatório
+        '401':
+          description: Autenticação necessária
+        '403':
+          description: Acesso negado
+        '404':
+          description: App ou password não encontrada
+    get:
+      summary: Obter a password de um app
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: appid
+          required: true
+          schema:
+            type: string
+          description: ID único do aplicativo
+      responses:
+        '200':
+          description: password obtida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  password:
+                    type: string
+        '401':
+          description: Autenticação necessária
+        '403':
+          description: Acesso negado
+        '404':
+          description: App ou password não encontrada
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
