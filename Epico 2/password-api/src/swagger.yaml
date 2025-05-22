@@ -1,7 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Password Management API
-  description: API para gerir passwords de aplicativos com autenticação JWT e ReBAC.
+  title: API de Gestão de Utilizador e Aplicações
   version: 1.0.0
 servers:
   - url: http://localhost:3000
@@ -9,7 +8,7 @@ servers:
 paths:
   /api/register:
     post:
-      summary: Registrar um novo Utilizador
+      summary: Registra um novo utilizador
       requestBody:
         required: true
         content:
@@ -19,26 +18,77 @@ paths:
               properties:
                 username:
                   type: string
+                  minLength: 5
+                  maxLength: 20
+                  description: Nome de utilizador (5 a 20 caracteres)
                 password:
                   type: string
-              required: [username, password]
+                  minLength: 8
+                  maxLength: 32
+                  description: Senha do utilizador (8 a 32 caracteres)
+              required:
+                - username
+                - password
       responses:
         '201':
-          description: Utilizador criado
+          description: Utilizador criado com sucesso
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  id:
+                  _id:
                     type: string
                   username:
                     type: string
+              example:
+                _id: "12345"
+                username: "JoaquimZe"
         '400':
           description: Erro na requisição
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Username e password são obrigatórios
+                      - Username precisa de ter entre 5 e 20 caracteres
+                      - Password precisa de ter entre 8 e 32 caracteres
+                      - Utilizador já existe
+              examples:
+                missingFields:
+                  summary: Campos obrigatórios ausentes
+                  value:
+                    error: Username e password são obrigatórios
+                usernameLength:
+                  summary: Username fora dos limites
+                  value:
+                    error: Username precisa de ter entre 5 e 20 caracteres
+                passwordLength:
+                  summary: Password fora dos limites
+                  value:
+                    error: Password precisa de ter entre 8 e 32 caracteres
+                userExists:
+                  summary: Utilizador já existe
+                  value:
+                    error: Utilizador já existe
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: Erro interno do servidor
   /api/login:
     post:
-      summary: Autenticar um Utilizador
+      summary: Autentica um utilizador
       requestBody:
         required: true
         content:
@@ -48,12 +98,16 @@ paths:
               properties:
                 username:
                   type: string
+                  description: Nome de utilizador
                 password:
                   type: string
-              required: [username, password]
+                  description: Senha do utilizador
+              required:
+                - username
+                - password
       responses:
         '200':
-          description: Login bem-sucedido
+          description: Autenticação bem-sucedida
           content:
             application/json:
               schema:
@@ -64,15 +118,50 @@ paths:
                   user:
                     type: object
                     properties:
-                      id:
+                      _id:
                         type: string
                       username:
                         type: string
-        '401':
-          description: Credenciais inválidas
+              example:
+                token: "jwt.token.aqui"
+                user:
+                  _id: "12345"
+                  username: "JoaquimZe"
+        '400':
+          description: Erro na requisição
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Username e password são obrigatórios
+                      - Credenciais inválidas
+              examples:
+                missingFields:
+                  summary: Campos obrigatórios ausentes
+                  value:
+                    error: Username e password são obrigatórios
+                invalidCredentials:
+                  summary: Credenciais inválidas
+                  value:
+                    error: Credenciais inválidas
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: Erro interno do servidor
   /api/app:
     post:
-      summary: Criar um novo aplicativo
+      summary: Cria um novo aplicativo
       security:
         - bearerAuth: []
       requestBody:
@@ -84,10 +173,14 @@ paths:
               properties:
                 name:
                   type: string
-              required: [name]
+                  minLength: 10
+                  maxLength: 40
+                  description: Nome do aplicativo (10 a 40 caracteres)
+              required:
+                - name
       responses:
         '201':
-          description: App criado
+          description: Aplicativo criado com sucesso
           content:
             application/json:
               schema:
@@ -97,18 +190,65 @@ paths:
                     type: string
                   name:
                     type: string
+                  owner:
+                    type: string
+              example:
+                appid: "uuid-aqui"
+                name: "MeuApp"
+                owner: "12345"
         '400':
-          description: Nome do app é obrigatório
+          description: Erro na requisição
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Nome do aplicativo é obrigatório
+                      - Nome do aplicativo precisa de ter entre 3 e 50 caracteres
+              examples:
+                missingName:
+                  summary: Nome do aplicativo ausente
+                  value:
+                    error: Nome do aplicativo é obrigatório
+                nameLength:
+                  summary: Nome do aplicativo fora dos limites
+                  value:
+                    error: Nome do aplicativo precisa de ter entre 3 e 50 caracteres
         '401':
-          description: Autenticação necessária
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Autenticação necessária
+              example:
+                error: Autenticação necessária
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: Erro interno do servidor
   /api/apps:
     get:
-      summary: Listar aplicativos do Utilizador
+      summary: Lista os aplicativos do utilizador
       security:
         - bearerAuth: []
       responses:
         '200':
-          description: Lista de apps
+          description: Lista de aplicativos retornada com sucesso
           content:
             application/json:
               schema:
@@ -126,102 +266,334 @@ paths:
                       type: array
                       items:
                         type: string
+              example:
+                - appid: "uuid-aqui"
+                  name: "MeuApp"
+                  owner: "12345"
+                  editors: []
         '401':
-          description: Autenticação necessária
-  /api/password/{appid}:
-    post:
-      summary: Criar ou atualizar uma password para um app
-      security:
-        - bearerAuth: []
-      parameters:
-        - in: path
-          name: appid
-          required: true
-          schema:
-            type: string
-          description: ID único do aplicativo
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                password:
-                  type: string
-              required: [password]
-      responses:
-        '201':
-          description: password criada
-        '200':
-          description: password atualizada
-        '400':
-          description: Password é obrigatório
-        '401':
-          description: Autenticação necessária
-        '403':
-          description: Acesso negado
-        '404':
-          description: App não encontrado
-    put:
-      summary: Atualizar a password de um app
-      security:
-        - bearerAuth: []
-      parameters:
-        - in: path
-          name: appid
-          required: true
-          schema:
-            type: string
-          description: ID único do aplicativo
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                password:
-                  type: string
-              required: [password]
-      responses:
-        '200':
-          description: password atualizada
-        '400':
-          description: Password é obrigatório
-        '401':
-          description: Autenticação necessária
-        '403':
-          description: Acesso negado
-        '404':
-          description: App ou password não encontrada
-    get:
-      summary: Obter a password de um app
-      security:
-        - bearerAuth: []
-      parameters:
-        - in: path
-          name: appid
-          required: true
-          schema:
-            type: string
-          description: ID único do aplicativo
-      responses:
-        '200':
-          description: password obtida
+          description: Não autorizado
           content:
             application/json:
               schema:
                 type: object
                 properties:
+                  error:
+                    type: string
+                    enum:
+                      - Autenticação necessária
+              example:
+                error: Autenticação necessária
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: Erro interno do servidor
+  /api/password/{appid}:
+    post:
+      summary: Cria uma nova password para um aplicativo
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: appid
+          schema:
+            type: string
+          required: true
+          description: ID único do aplicativo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  minLength: 8
+                  maxLength: 32
+                  description: Senha do aplicativo (8 a 32 caracteres)
+              required:
+                - password
+      responses:
+        '201':
+          description: Password criada com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appid:
+                    type: string
                   password:
                     type: string
+                  createdBy:
+                    type: string
+              example:
+                appid: "uuid-aqui"
+                password: "senha12345"
+                createdBy: "12345"
+        '400':
+          description: Erro na requisição
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Password é obrigatória
+                      - Password precisa de ter entre 8 e 32 caracteres
+                      - Aplicação não encontrada
+              examples:
+                missingPassword:
+                  summary: Password ausente
+                  value:
+                    error: Password é obrigatória
+                passwordLength:
+                  summary: Password fora dos limites
+                  value:
+                    error: Password precisa de ter entre 8 e 32 caracteres
+                appNotFound:
+                  summary: Aplicação não encontrada
+                  value:
+                    error: Aplicação não encontrada
         '401':
-          description: Autenticação necessária
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Autenticação necessária
+              example:
+                error: Autenticação necessária
         '403':
           description: Acesso negado
-        '404':
-          description: App ou password não encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Acesso negado
+              example:
+                error: Acesso negado
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: Erro interno do servidor
+    put:
+      summary: Atualiza a password de um aplicativo
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: appid
+          schema:
+            type: string
+          required: true
+          description: ID único do aplicativo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  minLength: 8
+                  maxLength: 32
+                  description: Senha do aplicativo (8 a 32 caracteres)
+              required:
+                - password
+      responses:
+        '200':
+          description: Password atualizada com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  appid:
+                    type: string
+                  password:
+                    type: string
+                  createdBy:
+                    type: string
+              example:
+                appid: "uuid-aqui"
+                password: "novasenha12345"
+                createdBy: "12345"
+        '400':
+          description: Erro na requisição
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Password é obrigatória
+                      - Password precisa de ter entre 8 e 32 caracteres
+                      - Aplicação não encontrada
+                      - Aplicação sem password definida
+              examples:
+                missingPassword:
+                  summary: Password ausente
+                  value:
+                    error: Password é obrigatória
+                passwordLength:
+                  summary: Password fora dos limites
+                  value:
+                    error: Password precisa de ter entre 8 e 32 caracteres
+                appNotFound:
+                  summary: Aplicação não encontrada
+                  value:
+                    error: Aplicação não encontrada
+                noPassword:
+                  summary: Password não definida
+                  value:
+                    error: Aplicação sem password definida
+        '401':
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Autenticação necessária
+              example:
+                error: Autenticação necessária
+        '403':
+          description: Acesso negado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Acesso negado
+              example:
+                error: Acesso negado
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: Erro interno do servidor
+    delete:
+      summary: Remove a password de um aplicativo
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: appid
+          schema:
+            type: string
+          required: true
+          description: ID único do aplicativo
+      responses:
+        '200':
+          description: Password removida com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Password removida com sucesso
+        '400':
+          description: Erro na requisição
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Aplicação não encontrada
+                      - Aplicação sem password definida
+              examples:
+                appNotFound:
+                  summary: Aplicação não encontrada
+                  value:
+                    error: Aplicação não encontrada
+                noPassword:
+                  summary: Password não definida
+                  value:
+                    error: Aplicação sem password definida
+        '401':
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Autenticação necessária
+              example:
+                error: Autenticação necessária
+        '403':
+          description: Acesso negado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum:
+                      - Acesso negado
+              example:
+                error: Acesso negado
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: Erro interno do servidor
 components:
   securitySchemes:
     bearerAuth:

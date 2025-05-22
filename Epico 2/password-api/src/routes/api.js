@@ -16,9 +16,20 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ error: 'Username e password são obrigatórios' });
     }
 
+    if (username.length < 5 || username.length > 20) {
+      logger.warn(`Tentativa de registro com username fora dos limites estabelecidos: ${username.length}`);
+      return res.status(400).json({ error: 'Username precisa de ter entre 5 e 20 caracteres' });
+    }
+
+    if (password.length < 8 || password.length > 32) {
+      logger.warn('Tentativa de registro com password fora dos limites estabelecidos');
+      return res.status(400).json({ error: 'Password precisa de ter entre 8 e 32 caracteres' });
+    }
+
     const user = await authService.register(username, password);
     res.status(201).json(user);
   } catch (err) {
+    logger.warn('Erro ao criar utilizador');
     res.status(400).json({ error: err.message });
   }
 });
@@ -46,6 +57,11 @@ router.post('/app', auth, async (req, res) => {
     if (!name) {
       logger.warn('Tentativa de criar app sem nome');
       return res.status(400).json({ error: 'Nome do app é obrigatório' });
+    }
+
+      if (name.length < 10 || name.length > 40) {
+      logger.warn('Tentativa de registro com nome da aplicaçao fora dos limites estabelecidos');
+      return res.status(400).json({ error: 'Nome da aplicaçao precisa de ter entre 10 e 40 caracteres' });
     }
 
     const app = new App({
@@ -86,6 +102,11 @@ router.post('/password/:appid', auth, async (req, res) => {
       return res.status(400).json({ error: 'Password é obrigatório' });
     }
 
+    if (password.length < 8 || password.length > 32) {
+      logger.warn('Tentativa de atualização da password fora dos limites estabelecidos');
+      return res.status(400).json({ error: 'Password precisa de ter entre 8 e 32 caracteres' });
+    }
+
     const app = await App.findOne({ appid });
     if (!app) {
       logger.warn(`App não encontrado: ${appid}`);
@@ -109,7 +130,7 @@ router.post('/password/:appid', auth, async (req, res) => {
       existingPassword.createdBy = req.user.id;
       await existingPassword.save();
       logger.info(`password atualizada para app ${appid} por utilizador ${req.user.id}`);
-      return res.json({ message: 'password atualizada' });
+      return res.json({ message: 'Password atualizada com sucesso' });
     }
 
     const newPassword = new Password({
@@ -138,6 +159,11 @@ router.put('/password/:appid', auth, async (req, res) => {
       return res.status(400).json({ error: 'Password é obrigatório' });
     }
 
+    if (password.length < 8 || password.length > 32) {
+      logger.warn('Tentativa de atualização da password fora dos limites estabelecidos');
+      return res.status(400).json({ error: 'Password precisa de ter entre 8 e 32 caracteres' });
+    }
+
     const app = await App.findOne({ appid });
     if (!app) {
       logger.warn(`App não encontrado: ${appid}`);
@@ -152,15 +178,15 @@ router.put('/password/:appid', auth, async (req, res) => {
 
     const existingPassword = await Password.findOne({ appid });
     if (!existingPassword) {
-      logger.warn(`password não encontrada para app ${appid}`);
-      return res.status(404).json({ error: 'password não encontrada' });
+      logger.warn(`Password não encontrada para app ${appid}`);
+      return res.status(404).json({ error: 'Aplicação sem password defenida' });
     }
 
     existingPassword.password = password;
     existingPassword.createdBy = req.user.id;
     await existingPassword.save();
     logger.info(`password atualizada para app ${appid} por utilizador ${req.user.id}`);
-    res.json({ message: 'password atualizada' });
+    res.json({ message: 'Password atualizada com sucesso' });
   } catch (err) {
     logger.error(`Erro ao atualizar password: ${err.message}`);
     res.status(400).json({ error: err.message });
@@ -175,7 +201,7 @@ router.get('/password/:appid', auth, async (req, res) => {
     const app = await App.findOne({ appid });
     if (!app) {
       logger.warn(`App não encontrado: ${appid}`);
-      return res.status(404).json({ error: 'App não encontrado' });
+      return res.status(404).json({ error: 'Aplicação não encontrada' });
     }
 
     const ability = defineAbilitiesFor(req.user, app);
@@ -187,7 +213,7 @@ router.get('/password/:appid', auth, async (req, res) => {
     const password = await Password.findOne({ appid });
     if (!password) {
       logger.warn(`password não encontrada para app ${appid}`);
-      return res.status(404).json({ error: 'password não encontrada' });
+      return res.status(404).json({ error: 'Aplicação sem password defenida' });
     }
 
     logger.info(`password obtida para app ${appid} por utilizador ${req.user.id}`);
