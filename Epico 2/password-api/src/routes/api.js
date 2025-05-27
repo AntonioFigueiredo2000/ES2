@@ -224,4 +224,50 @@ router.get('/password/:appid', auth, async (req, res) => {
   }
 });
 
+// Importar Stub da API externa
+const externalApi = require('../../stubs/externalApi');
+
+// Importar Apps
+router.post('/import/apps', auth, async (req, res) => {
+  try {
+    // Obter dados da API externa (usando o stub)
+    const externalApps = await externalApi.fetchApps();
+    logger.info(`Iniciando importação de ${externalApps.length} apps para o utilizador ${req.user.id}`);
+
+    // Mapear apps externas para o modelo App
+    const appsToSave = externalApps.map((externalApp) => ({
+      appid: externalApp.externalId, // Usar externalId como appid
+      name: externalApp.name,
+      owner: req.user.id,
+      editors: [],
+    }));
+
+    // Inserir ou atualizar apps no banco de dados
+    const savedApps = [];
+    for (const appData of appsToSave) {
+      const existingApp = await App.findOne({ appid: appData.appid });
+      if (existingApp) {
+        // Atualizar app existente
+        existingApp.name = appData.name;
+        await existingApp.save();
+        logger.info(`App atualizada: ${appData.appid} por utilizador ${req.user.id}`);
+      } else {
+        // Criar nova app
+        const newApp = new App(appData);
+        await newApp.save();
+        logger.info(`App criada: ${appData.appid} por utilizador ${req.user.id}`);
+      }
+      savedApps.push({ appid: appData.appid, name: appData.name });
+    }
+
+    res.status(201).json({
+      message: `Importação concluída: ${savedApps.length} apps processadas`,
+      apps: savedApps,
+    });
+  } catch (err) {
+    logger.error(`Erro ao importar apps: ${err.message}`);
+    res.status(500).json({ error: 'Erro ao importar apps' });
+  }
+});
+
 module.exports = router;
