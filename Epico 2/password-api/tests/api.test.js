@@ -43,20 +43,22 @@ jest.mock('../src/models/app', () => {
   const mockAppInstance = {
     save: jest.fn().mockResolvedValue(undefined),
     name: '',
+    appid: '',
+    owner: '',
+    editors: [],
   };
-  return {
-    findOne: jest.fn().mockResolvedValue(null), // Simula que a app não existe
-    mockAppInstance, // Para casos onde uma instância é criada
-    prototype: {
-      save: jest.fn().mockResolvedValue(undefined),
-    },
-  };
+  const AppMock = jest.fn().mockImplementation((data) => ({
+    ...mockAppInstance,
+    ...data, // Copia os dados passados para a instância
+  }));
+  AppMock.findOne = jest.fn().mockResolvedValue(null); // Simula que a app não existe
+  return AppMock;
 });
 
 describe('API Endpoints - Logging Tests', () => {
   let app;
   let loggerTransport;
-  let server; // Para gerenciar o servidor Express
+  let server;
 
   beforeAll((done) => {
     // Criar um transporte de teste para capturar logs
@@ -204,12 +206,6 @@ describe('API Endpoints - Logging Tests', () => {
         { name: 'App Externa 2', externalId: 'ext-002' },
       ]);
 
-      // Configurar mocks para App.findOne e App.save
-      App.findOne
-        .mockResolvedValueOnce(null) // Primeira app não existe
-        .mockResolvedValueOnce(null); // Segunda app não existe
-      App.mockAppInstance.save.mockResolvedValue(undefined);
-
       const response = await request(app).post('/import/apps').send();
 
       expect(response.status).toBe(201);
@@ -227,7 +223,7 @@ describe('API Endpoints - Logging Tests', () => {
           message: 'App criada: ext-001 por utilizador user123',
         })
       );
-    }, 10000); // Aumentar o timeout para 10 segundos
+    }, 10000);
 
     it('deve registrar erro ao falhar a importação', async () => {
       externalApi.fetchApps.mockRejectedValue(new Error('Erro na API externa'));
